@@ -113,12 +113,14 @@ function handleAction(action) {
 // Touch input – swipe or tap
 canvas.addEventListener("touchstart", e => {
   e.preventDefault();
+  if (!e.touches || e.touches.length === 0) return;
   touchStartX = e.touches[0].clientX;
   touchStartY = e.touches[0].clientY;
 }, { passive: false });
 
 canvas.addEventListener("touchend", e => {
   e.preventDefault();
+  if (!e.changedTouches || e.changedTouches.length === 0) return;
   const dx = e.changedTouches[0].clientX - touchStartX;
   const dy = e.changedTouches[0].clientY - touchStartY;
   const absDx = Math.abs(dx);
@@ -136,14 +138,30 @@ canvas.addEventListener("touchend", e => {
   }
 }, { passive: false });
 
+canvas.addEventListener("touchcancel", () => {
+  touchStartX = 0;
+  touchStartY = 0;
+}, { passive: true });
+
 // Keyboard fallback for desktop testing
 window.addEventListener("keydown", e => {
   switch (e.key) {
-    case "ArrowLeft":  handleAction("left");  break;
-    case "ArrowRight": handleAction("right"); break;
+    case "ArrowLeft":
+      e.preventDefault();
+      handleAction("left");
+      break;
+    case "ArrowRight":
+      e.preventDefault();
+      handleAction("right");
+      break;
     case "ArrowUp":
-    case " ":          handleAction("jump");  break;
-    case "Enter":      handleAction("start"); break;
+    case " ":
+      e.preventDefault();
+      handleAction("jump");
+      break;
+    case "Enter":
+      handleAction("start");
+      break;
   }
 });
 

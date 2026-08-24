@@ -35,9 +35,15 @@ const Player = (() => {
    * @param {number[]} laneYs  y-centre for each lane [0..2]
    */
   function resize(cw, ch, laneYs) {
+    const prevBaseY = baseY;
     x     = Math.floor(cw * 0.15);
     baseY = laneYs[lane] - HEIGHT / 2;
-    if (!isJumping) y = baseY;
+    if (!isJumping) {
+      y = baseY;
+    } else {
+      // Keep the same jump offset from the lane baseline across resizes.
+      y += (baseY - prevBaseY);
+    }
   }
 
   /** Move the player one lane to the left (lower index). */
