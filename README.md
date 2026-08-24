@@ -1,30 +1,54 @@
-# Gaming Micro App Template
+# Neon Dash 🎮
 
-Blank starter template for building browser-based gaming microapps and deploying them to GitHub Pages.
+A fast, mobile‑friendly neon runner game built with plain HTML5 Canvas and vanilla JavaScript – no libraries required.
 
-## What this template includes
+## How to Play
 
-- `docs/index.html` — starter HTML shell
-- `docs/styles.css` — base responsive styling
-- `docs/game.js` — minimal JavaScript bootstrap point
-- `index.html` — root redirect to `docs/` for local/open-in-browser convenience
+| Action | Mobile | Keyboard |
+|--------|--------|----------|
+| Switch lane left | Swipe ← | Arrow Left |
+| Switch lane right | Swipe → | Arrow Right |
+| Jump | Tap screen | Space / Arrow Up |
+| Start / Restart | Tap screen | Enter |
 
-## Create a new game from this template
+- Dodge the **red obstacles** – touching one ends the game.
+- Collect **yellow shards** – each shard is worth 10 points.
+- The game speeds up over time; survive as long as you can!
 
-1. Click **Use this template** on GitHub.
-2. Name your new repository.
-3. Clone the new repo and replace `docs/game.js` with your game logic.
-4. Update `docs/index.html` markup and `docs/styles.css` styling as needed.
+## Project Structure
+
+```
+/docs
+  index.html   – game shell, loads all scripts
+  styles.css   – minimal full-screen dark theme
+  player.js    – player state, lane switching, jump physics
+  obstacles.js – obstacle spawning, movement, collision detection
+  shards.js    – shard spawning, collection, scoring
+  game.js      – main game loop, input handling, screen management
+```
+
+## Running Locally
+
+Open `docs/index.html` directly in any modern browser, or serve the `/docs` folder with a local HTTP server:
+
+```bash
+# Python 3
+python3 -m http.server 8080 --directory docs
+# Then open http://localhost:8080
+```
 
 ## Deploy to GitHub Pages
 
-1. In your game repo, go to **Settings → Pages**.
-2. Under **Build and deployment**, choose:
-   - **Source:** Deploy from a branch
-   - **Branch:** `main` (or your default branch)
-   - **Folder:** `/docs`
-3. Save and wait for GitHub Pages to publish.
+1. Push this repository to GitHub.
+2. Go to **Settings → Pages**.
+3. Set **Source** to `Deploy from a branch`, branch `main`, folder `/docs`.
+4. Save – GitHub Pages will publish the game at `https://<username>.github.io/<repo-name>/`.
 
-After publish, your app is available at:
+The root `index.html` automatically redirects visitors to `./docs/`, so both the root URL and the `/docs/` URL work.
 
-`https://<your-username>.github.io/<your-repo>/`
+## Technical Notes
+
+- Pure HTML5 Canvas rendering – rectangles with neon `shadowBlur` glow.
+- No external libraries or frameworks.
+- Touch events use `passive: false` to allow `preventDefault` (prevents accidental scroll while playing).
+- Canvas is resized on every `window.resize` event to stay full‑screen on any device.
