@@ -1,6 +1,7 @@
 # Neon Dash 🎮
 
 A fast, mobile‑friendly neon runner game built with plain HTML5 Canvas and vanilla JavaScript – no libraries required.
+[![Sponsor me on GitHub](https://img.shields.io/badge/Sponsor%20me%20on-GitHub-EA4AAA?logo=githubsponsors&style=flat-square)](https://github.com/sponsors/gituserc1140)
 
 ## How to Play
 
