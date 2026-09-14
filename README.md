@@ -2,10 +2,14 @@
 
 A fast, mobile‑friendly neon runner game built with plain HTML5 Canvas and vanilla JavaScript – no libraries required.
 
+# Play Now!
+
+[![Play on GitHub Pages](https://img.shields.io/badge/Play%20on-GitHub%20Pages-2EA44F?logo=github&style=flat-square)](https://gituserc1140.github.io/Neon_Dash_Micro_Game_App/docs/)
+
 # Sponsor me!
 
 [![Sponsor me on GitHub](https://img.shields.io/badge/Sponsor%20me%20on-GitHub-EA4AAA?logo=githubsponsors&style=flat-square)](https://github.com/sponsors/gituserc1140)
-[![Play on GitHub Pages](https://img.shields.io/badge/Play%20on-GitHub%20Pages-2EA44F?logo=github&style=flat-square)](https://gituserc1140.github.io/Neon_Dash_Micro_Game_App/docs/)
+
 
 ## How to Play
 
